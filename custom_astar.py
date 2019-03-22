@@ -16,7 +16,7 @@ from itertools import count
 
 import networkx as nx
 from networkx.utils import not_implemented_for
-
+from scipy.spatial import distance
 __all__ = ['astar_path', 'astar_path_length']
 
 
