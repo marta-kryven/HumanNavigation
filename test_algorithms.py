@@ -8,7 +8,7 @@ from itertools import count
 #import custom functions
 from custom_astar import astar_path, astar_path_length
 from heuristics import weighed_euclidean_distance
-from parse_graph import * #import test_graph_nx and data_graph_nx
+from parse_graph import * #import test_graph_nx, data_graph_nx, test_graph, test_graph_bidirectional, and test_graph_node_positions
 
 alpha = 0.5
 beta = 1.0
