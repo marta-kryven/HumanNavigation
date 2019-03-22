@@ -1,5 +1,6 @@
 import pdb, sys, numpy as np, pickle, os, cairo
 import networkx as nx
+from scipy.spatial import distance
 from igraph import *
 
 '''
