@@ -7,7 +7,7 @@ import itertools
 from itertools import count
 #import custom functions
 from custom_astar import astar_path, astar_path_length
-from heuristics import weighed_euclidean_distance
+from heuristics import *
 from parse_graph import * #import test_graph_nx, data_graph_nx, test_graph, test_graph_bidirectional, and test_graph_node_positions
 
 alpha = 0.5
@@ -21,7 +21,8 @@ x=plot_path(test_graph,test_graph_bidirectional, path, path_length, test_graph_n
 x.show()
 
 #test algorithm on the data
-path, path_length = astar_path_length(data_graph_nx, source, target, alpha = alpha, heuristic = weighed_euclidean_distance(data_graph_nx, beta))
+h = weighted_euclidean_distance(data_graph_nx, beta)
+path, path_length = astar_path_length(data_graph_nx, source, target, alpha = alpha, h)
 
 print 'path links: ', len(path)-1
 print 'path length: ' , path_length
