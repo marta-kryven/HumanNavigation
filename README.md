@@ -1,5 +1,5 @@
 # HumanNavigation
-Models for the Human Navigation Project with Sensable City Lab
+Models for the Human Navigation Project with Senseable City Lab
 
 
-The code is using Jupyter, whcih needs to be installed to run the snippets
+The code is using Jupyter, which needs to be installed to run the snippets
