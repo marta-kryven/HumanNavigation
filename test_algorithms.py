@@ -26,3 +26,35 @@ path, path_length = astar_path_length(data_graph_nx, source, target, alpha = alp
 
 print 'path links: ', len(path)-1
 print 'path length: ' , path_length
+
+#test algorithm on a range of values
+test_vals    = np.linspace(0,1,10)
+N            = len(test_vals)
+paths        = []
+path_edges   = np.zeros([N,N])
+path_lengths = np.zeros([N,N])
+start_node   = 0
+target_node  = 100
+
+for i in range(N):
+    alpha = test_vals[i]
+    for j in range(N):
+        beta = test_vals[j]
+        h = weighted_euclidean_distance(data_graph_nx, beta)
+        path, path_length = astar_path_length(data_graph_nx, 0, 100, alpha, heuristic = h)
+        path_lengths[i,j] = path_length
+        path_edges[i,j]   = len(path)-1
+        
+plt.imshow(path_lengths, interpolation='bilinear', origin='lower', extent=[0, 3, 0, 3])
+plt.title('Path lengths for different alpha and betas\n Heuristic: Weighted Euclidean Distance');
+plt.ylabel(r'$\alpha$')
+plt.xlabel(r'$\beta$')
+plt.colorbar()
+plt.show()
+
+plt.imshow(path_edges, interpolation='bilinear', origin='lower', extent=[0, 3, 0, 3])
+plt.title('Path links for different parameters \n Heuristic: Weighted Euclidean Distance');
+plt.ylabel(r'$\alpha$')
+plt.xlabel(r'$\beta$')
+plt.colorbar()
+plt.show()
